@@ -11,35 +11,39 @@ MediSense-AI is a web-based application designed to assist users in diagnosing d
 
 To set up the project locally:  
 
-1. **Clone the Repository:**  
-   ```sh
-   git clone https://github.com/sakshimittal5631/MediSense-AI.git
-   cd MediSense-AI
+### Clone the Repository
+```sh
+git clone https://github.com/sakshimittal5631/MediSense-AI.git
+cd MediSense-AI
+```
 
-    Create and Activate a Virtual Environment:
+## Create and Activate a Virtual Environment
 
-        On Windows:
-
+**On Windows:**
+```sh
 python -m venv venv
 venv\Scripts\activate
+```
 
-On macOS and Linux:
+**On macOS and Linux:**
+```sh
+python3 -m venv venv
+source venv/bin/activate
+```
 
-    python3 -m venv venv
-    source venv/bin/activate
-
-Install Dependencies:
-
+## Install Dependencies
+```sh
 pip install -r requirements.txt
+```
 
-Run the Application:
+## Run the Application
+```sh
+uvicorn main:app --reload
+```
+The application will be accessible at [http://127.0.0.1:8000](http://127.0.0.1:8000).
 
-    uvicorn main:app --reload
-
-    The application will be accessible at http://127.0.0.1:8000.
-
-Project Structure
-
+## Project Structure
+```
 MediSense-AI/
 ├── datasets/           # Contains CSV files with medical data
 ├── models/             # Stores machine learning models (e.g., svc.pkl)
@@ -49,34 +53,30 @@ MediSense-AI/
 ├── main.py             # Main application entry point
 ├── requirements.txt    # List of project dependencies
 └── .gitignore          # Specifies files and directories to be ignored by Git
+```
 
-Dependencies
+## Dependencies
+- **FastAPI**: Web framework for building APIs.
+- **scikit-learn**: Machine learning library for Python.
+- **pandas**: Data analysis and manipulation library.
+- **numpy**: Numerical computing library.
 
-    FastAPI: Web framework for building APIs.
+For a complete list, refer to `requirements.txt`.
 
-    scikit-learn: Machine learning library for Python.
-
-    pandas: Data analysis and manipulation library.
-
-    numpy: Numerical computing library.
-
-For a complete list, refer to requirements.txt.
-Contributing
-
+## Contributing
 Contributions are welcome! Please follow these steps:
 
-    Fork the repository.
-
-    Create a new branch:
-
-git checkout -b feature-branch
-
-Make your changes and commit them:
-
-git commit -m "Add new feature"
-
-Push your changes:
-
-git push origin feature-branch
-
-Open a Pull Request on GitHub.
+1. Fork the repository.
+2. Create a new branch:
+   ```sh
+   git checkout -b feature-branch
+   ```
+3. Make your changes and commit them:
+   ```sh
+   git commit -m "Add new feature"
+   ```
+4. Push your changes:
+   ```sh
+   git push origin feature-branch
+   ```
+5. Open a Pull Request on GitHub.
