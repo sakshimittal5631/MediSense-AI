@@ -1,0 +1,7 @@
+new model workspace
+one to many relation with chatroom
+also multiple users
+update gitignore
+members of a chatroom
+database diagram
+docker

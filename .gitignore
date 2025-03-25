@@ -1,0 +1,8 @@
+# Ignore JetBrains (PyCharm) project files
+.idea/
+
+# Ignore Python bytecode
+__pycache__/
+
+# Ignore a specific file
+report.pdf
