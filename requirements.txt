@@ -1,7 +1,6 @@
-new model workspace
-one to many relation with chatroom
-also multiple users
-update gitignore
-members of a chatroom
-database diagram
-docker
+"fastapi[standard]"
+scikit-learn==1.2.2
+pandas==1.5.3
+numpy==1.24.2
+reportlab==3.6.12
+jinja2==3.1.2
