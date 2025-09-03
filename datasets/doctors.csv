@@ -1,0 +1,48 @@
+Disease,DoctorName,Specialization,Hospital
+Fungal infection,Dr. Anup R Warrier,Infectious Disease Specialist,Aster Medcity (Kochi)
+Fungal infection,Dr. Swati Rajagopal,Infectious Disease & Travel Medicine,Aster CMI Hospital (Bangalore)
+Allergy,Dr. Rakesh Bhardwaj,Allergist,AIIMS Delhi
+Allergy,Dr. Ashok Shah,Immunologist,Jaslok Hospital (Mumbai)
+GERD,Dr. Naresh Bansal,Gastroenterologist,AIIMS Delhi
+GERD,Dr. Pawan Kumar Goyal,General Physician/Internal Medicine,Fortis Healthcare (Delhi NCR)
+Chronic cholestasis,Dr. Adarsh Chaudhary,Hepatobiliary & Pancreatic Surgeon (Gastroenterology),Getwellgo
+Chronic cholestasis,Dr. Naresh Bansal,Gastroenterologist,AIIMS Delhi
+Drug Reaction,Dr. J. M. S. Kalra,Internal Medicine / General Physician,Fortis Healthcare (Shalimar Bagh)
+Peptic ulcer disease,Dr. Naresh Bansal,Gastroenterologist,AIIMS Delhi
+Peptic ulcer disease,Dr. Pawan Kumar Goyal,General Physician/Internal Medicine,Fortis Healthcare (Delhi NCR)
+AIDS,Dr. Abdul Ghafur,Infectious Disease Specialist,Apollo Hospitals
+Diabetes,Dr. Anupam Bhargava,Endocrinologist,Max Healthcare
+Diabetes,Dr. Sandeep Budhiraja,Endocrinologist,Max Healthcare
+Gastroenteritis,Dr. Naresh Bansal,Gastroenterologist,AIIMS Delhi
+Bronchial Asthma,Dr. Randeep Guleria,Pulmonologist,AIIMS Delhi
+Hypertension,Dr. Randeep Guleria,Internal Medicine / Pulmonologist,AIIMS Delhi
+Migraine,Dr. Nirmal Surya,Neurologist,Synapse Neurosciences (Mumbai)
+Cervical spondylosis,Dr. Anil Arora,Rheumatologist / Orthopedic Specialist,Max Hospital
+Paralysis (brain hemorrhage),Dr. Nirmal Surya,Neurologist,Synapse Neurosciences
+Jaundice,Dr. Adarsh Chaudhary,Hepatobiliary Surgeon,Getwellgo
+Malaria,Dr. Anup R Warrier,Infectious Disease Specialist,Aster Medcity (Kochi)
+Chicken pox,Dr. Abdul Ghafur,Infectious Disease Specialist,Apollo Hospitals
+Dengue,Dr. Anup R Warrier,Infectious Disease Specialist,Aster Medcity (Kochi)
+Typhoid,Dr. Anup R Warrier,Infectious Disease Specialist,Aster Medcity (Kochi)
+Hepatitis A,Dr. Adarsh Chaudhary,Hepatobiliary Surgeon,Getwellgo
+Hepatitis B,Dr. Adarsh Chaudhary,Hepatobiliary Surgeon,Getwellgo
+Hepatitis C,Dr. Adarsh Chaudhary,Hepatobiliary Surgeon,Getwellgo
+Hepatitis D,Dr. Adarsh Chaudhary,Hepatobiliary Surgeon,Getwellgo
+Hepatitis E,Dr. Adarsh Chaudhary,Hepatobiliary Surgeon,Getwellgo
+Alcoholic hepatitis,Dr. Naresh Bansal,Gastroenterologist,AIIMS Delhi
+Tuberculosis,Dr. Randeep Guleria,Pulmonologist,AIIMS Delhi
+Common Cold,Dr. Pawan Kumar Goyal,General Physician/Internal Medicine,Fortis Healthcare (Delhi NCR)
+Pneumonia,Dr. Randeep Guleria,Pulmonologist,AIIMS Delhi
+Dimorphic hemorrhoids (piles),Dr. Adarsh Chaudhary,Hepatobiliary & Pancreatic Surgeon,Getwellgo
+Heart attack,Dr. Naresh Trehan,Cardiologist,Medanta (Gurugram)
+Varicose veins,Dr. Naresh Trehan,Cardiologist / Cardiovascular,Medanta
+Hypothyroidism,Dr. Anupam Bhargava,Endocrinologist,Max Healthcare
+Hyperthyroidism,Dr. Anupam Bhargava,Endocrinologist,Max Healthcare
+Hypoglycemia,Dr. Anupam Bhargava,Endocrinologist,Max Healthcare
+Osteoarthritis,Dr. Anil Arora,Rheumatologist / Orthopedic Specialist,Max Healthcare
+Arthritis,Dr. Arvind Chopra,Rheumatologist,Medanta
+(Vertigo) BPPV,Dr. Nirmal Surya,Neurologist,Synapse Neurosciences
+Acne,Dr. Abdul Ghafur,General / Infectious Specialist,Apollo Hospitals
+Urinary tract infection,Dr. Anup R Warrier,Infectious Disease Specialist,Aster Medcity (Kochi)
+Psoriasis,Dr. Rakesh Bhardwaj,Dermatologist / Immunologist,AIIMS Delhi
+Impetigo,Dr. Rakesh Bhardwaj,Dermatologist,AIIMS Delhi

@@ -1,10 +1,16 @@
-from fastapi import APIRouter, Request, Form
+from fastapi import APIRouter, Request, Form, Depends, status
+from database import get_db
 from fastapi.responses import HTMLResponse, FileResponse
+from sqlalchemy.orm import Session
 from fastapi.templating import Jinja2Templates
 from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image
 from reportlab.lib.styles import getSampleStyleSheet
+from fastapi.responses import RedirectResponse
 import os, numpy as np, pandas as pd, pickle
+from oauth import get_current_user
+import models
+import ast
 
 router = APIRouter()
 templates = Jinja2Templates(directory="templates")
@@ -16,6 +22,7 @@ workout = pd.read_csv("datasets/workout_df.csv")
 description = pd.read_csv("datasets/description.csv")
 medications = pd.read_csv("datasets/medications.csv")
 diets = pd.read_csv("datasets/diets.csv")
+doctors = pd.read_csv("datasets/doctors.csv")
 svc = pickle.load(open("models/svc.pkl", "rb"))
 
 
@@ -23,10 +30,39 @@ svc = pickle.load(open("models/svc.pkl", "rb"))
 def helper(dis):
     desc = " ".join(description[description['Disease'] == dis]['Description'])
     pre = precautions[precautions['Disease'] == dis][['Precaution_1', 'Precaution_2', 'Precaution_3', 'Precaution_4']]
-    med = list(medications[medications['Disease'] == dis]['Medication'].values)
-    die = list(diets[diets['Disease'] == dis]['Diet'].values)
+    med_raw = medications[medications['Disease'] == dis]['Medication'].values
+    med = []
+    for m in med_raw:
+        if isinstance(m, str):
+            try:
+                parsed = ast.literal_eval(m)  # convert "['a','b']" -> ['a','b']
+                if isinstance(parsed, list):
+                    med.extend(parsed)
+                else:
+                    med.append(parsed)
+            except Exception:
+                med.append(m)
+        else:
+            med.append(m)
+    diet_raw = diets[diets['Disease'] == dis]['Diet'].values
+    die = []
+    for d in diet_raw:
+        if isinstance(d, str):
+            try:
+                parsed = ast.literal_eval(d)
+                if isinstance(parsed, list):
+                    die.extend(parsed)
+                else:
+                    die.append(parsed)
+            except Exception:
+                die.append(d)
+        else:
+            die.append(d)
     wrkout = workout[workout['disease'] == dis]['workout']
-    return desc, [col for col in pre.values], med, die, wrkout
+    doc_data = doctors[doctors['Disease'].str.strip().str.lower() == dis.strip().lower()][
+        ['DoctorName', 'Specialization', 'Hospital']
+    ].to_dict(orient="records")
+    return desc, [col for col in pre.values], med, die, wrkout, doc_data
 
 
 # Dictionaries for mapping symptoms to indices and disease predictions
@@ -94,7 +130,7 @@ def get_predicted_value(patient_symptoms):
 
 
 # Create a PDF report with clear formatting
-def generate_pdf(predicted_disease, dis_des, my_precautions, medications, my_diet, workout, symptoms):
+def generate_pdf(predicted_disease, dis_des, my_precautions, medications, my_diet, workout, symptoms, doctors_list):
     pdf_path = "report.pdf"
     doc = SimpleDocTemplate(
         pdf_path,
@@ -151,38 +187,118 @@ def generate_pdf(predicted_disease, dis_des, my_precautions, medications, my_die
         elements.append(Paragraph(f"- {wrk}", styleNormal))
     elements.append(Spacer(1, 12))
 
+    elements.append(Paragraph("Consult These Doctors:", styleHeading))
+    for doc_info in doctors_list:
+        elements.append(
+            Paragraph(f"- {doc_info['DoctorName']} ({doc_info['Specialization']}) - {doc_info['Hospital']}", styleNormal))
+    elements.append(Spacer(1, 12))
+
     doc.build(elements)
     return pdf_path
 
+@router.get("/", response_class=HTMLResponse)
+async def login_page(request: Request):
+    return templates.TemplateResponse("login.html", {"request": request})
+
+
+@router.post("/login")
+async def login(request: Request, db: Session = Depends(get_db),
+                username: str = Form(...), password: str = Form(...)):
+    user = db.query(models.User).filter(models.User.username == username).first()
+    if not user:
+        return templates.TemplateResponse("login.html", {"request": request, "error": "Invalid Credentials"})
+    if not Hash.verify(password, user.password):
+        return templates.TemplateResponse("login.html", {"request": request, "error": "Incorrect Password"})
+
+    response = RedirectResponse(url="/predict", status_code=status.HTTP_303_SEE_OTHER)
+    return response
 
 # Endpoint for predicting disease and generating the PDF
 @router.get("/predict", response_class=HTMLResponse)
-async def predict_get(request: Request):
+async def predict_get(request: Request, current_user: models.User = Depends(get_current_user)):
     return templates.TemplateResponse("index.html", {"request": request})
 
 
 @router.post("/predict", response_class=HTMLResponse)
-async def predict(request: Request, symptoms: str = Form(...)):
-    if symptoms == "Symptoms":
-        return templates.TemplateResponse("index.html", {"request": request, "message": "Please enter valid symptoms."})
+async def predict(
+    request: Request,
+    symptoms: str = Form(...)
+):
+    # Case 1: Placeholder or empty string
+    if not symptoms.strip() or symptoms.strip().lower() == "symptoms":
+        return templates.TemplateResponse(
+            "index.html",
+            {"request": request, "alert_message": "⚠️ Please enter at least one valid symptom."}
+        )
 
-    user_symptoms = [s.strip() for s in symptoms.split(',')]
-    user_symptoms = [symptom.strip("[]' ") for symptom in user_symptoms]
-    predicted_disease = get_predicted_value(user_symptoms)
-    dis_des, prec, meds, rec_diet, wrkout = helper(predicted_disease)
+    # Step 1: Split and clean input
+    user_symptoms_raw = [s.strip() for s in symptoms.split(',') if s.strip()]
+
+    if not user_symptoms_raw:
+        return templates.TemplateResponse(
+            "index.html",
+            {"request": request, "alert_message": "⚠️ Please enter valid symptoms."}
+        )
+
+    # Step 2: Normalize + validate against dataset
+    valid_symptoms = []
+    invalid_symptoms = []
+
+    for sym in user_symptoms_raw:
+        normalized = sym.lower().replace(" ", "_")
+        if normalized in symptoms_dict:
+            valid_symptoms.append(normalized)
+        else:
+            invalid_symptoms.append(sym)  # keep original as typed by user
+
+    # Step 3: If invalid symptoms found → show popup
+    if invalid_symptoms:
+        return templates.TemplateResponse(
+            "index.html",
+            {
+                "request": request,
+                "alert_message": f"❌ Invalid symptoms: {', '.join(invalid_symptoms)}. "
+                                 f"Please enter them exactly as shown in the symptoms list."
+            }
+        )
+
+    # Step 4: If no valid symptoms left → show popup
+    if not valid_symptoms:
+        return templates.TemplateResponse(
+            "index.html",
+            {"request": request, "alert_message": "⚠️ No valid symptoms detected. Please try again."}
+        )
+
+    # Step 5: Run prediction
+    predicted_disease = get_predicted_value(valid_symptoms)
+    dis_des, prec, meds, rec_diet, wrkout, doc_list = helper(predicted_disease)
+
     my_precautions = [i for i in prec[0]]
-    pdf_path = generate_pdf(predicted_disease, dis_des, my_precautions, meds, rec_diet, wrkout, user_symptoms)
+    pdf_path = generate_pdf(
+        predicted_disease,
+        dis_des,
+        my_precautions,
+        meds,
+        rec_diet,
+        wrkout,
+        valid_symptoms,
+        doc_list
+    )
 
-    return templates.TemplateResponse("index.html", {
-        "request": request,
-        "predicted_disease": predicted_disease,
-        "dis_des": dis_des,
-        "my_precautions": my_precautions,
-        "medications": meds,
-        "my_diet": rec_diet,
-        "workout": wrkout,
-        "pdf_report": pdf_path
-    })
+    return templates.TemplateResponse(
+        "index.html",
+        {
+            "request": request,
+            "predicted_disease": predicted_disease,
+            "dis_des": dis_des,
+            "my_precautions": my_precautions,
+            "medications": meds,
+            "my_diet": rec_diet,
+            "workout": wrkout,
+            "doctors": doc_list,
+            "pdf_report": pdf_path
+        }
+    )
 
 
 @router.get("/download_report", response_class=FileResponse)

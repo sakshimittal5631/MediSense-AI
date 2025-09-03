@@ -1,42 +1,42 @@
 ,Disease,Precaution_1,Precaution_2,Precaution_3,Precaution_4
-0,Drug Reaction,stop irritation,consult nearest hospital,stop taking drug,follow up
-1,Malaria,Consult nearest hospital,avoid oily food,avoid non veg food,keep mosquitos out
-2,Allergy,apply calamine,cover area with bandage,,use ice to compress itching
-3,Hypothyroidism,reduce stress,exercise,eat healthy,get proper sleep
-4,Psoriasis,wash hands with warm soapy water,stop bleeding using pressure,consult doctor,salt baths
-5,GERD,avoid fatty spicy food,avoid lying down after eating,maintain healthy weight,exercise
-6,Chronic cholestasis,cold baths,anti itch medicine,consult doctor,eat healthy
-7,hepatitis A,Consult nearest hospital,wash hands through,avoid fatty spicy food,medication
-8,Osteoarthristis,acetaminophen,consult nearest hospital,follow up,salt baths
-9,(vertigo) Paroymsal  Positional Vertigo,lie down,avoid sudden change in body,avoid abrupt head movment,relax
-10,Hypoglycemia,lie down on side,check in pulse,drink sugary drinks,consult doctor
-11,Acne,bath twice,avoid fatty spicy food,drink plenty of water,avoid too many products
-12,Diabetes ,have balanced diet,exercise,consult doctor,follow up
-13,Impetigo,soak affected area in warm water,use antibiotics,remove scabs with wet compressed cloth,consult doctor
-14,Hypertension ,meditation,salt baths,reduce stress,get proper sleep
-15,Peptic ulcer diseae,avoid fatty spicy food,consume probiotic food,eliminate milk,limit alcohol
-16,Dimorphic hemmorhoids(piles),avoid fatty spicy food,consume witch hazel,warm bath with epsom salt,consume alovera juice
-17,Common Cold,drink vitamin c rich drinks,take vapour,avoid cold food,keep fever in check
-18,Chicken pox,use neem in bathing ,consume neem leaves,take vaccine,avoid public places
-19,Cervical spondylosis,use heating pad or cold pack,exercise,take otc pain reliver,consult doctor
-20,Hyperthyroidism,eat healthy,massage,use lemon balm,take radioactive iodine treatment
-21,Urinary tract infection,drink plenty of water,increase vitamin c intake,drink cranberry juice,take probiotics
-22,Varicose veins,lie down flat and raise the leg high,use oinments,use vein compression,dont stand still for long
-23,AIDS,avoid open cuts,wear ppe if possible,consult doctor,follow up
-24,Paralysis (brain hemorrhage),massage,eat healthy,exercise,consult doctor
-25,Typhoid,eat high calorie vegitables,antiboitic therapy,consult doctor,medication
-26,Hepatitis B,consult nearest hospital,vaccination,eat healthy,medication
-27,Fungal infection,bath twice,use detol or neem in bathing water,keep infected area dry,use clean cloths
-28,Hepatitis C,Consult nearest hospital,vaccination,eat healthy,medication
-29,Migraine,meditation,reduce stress,use poloroid glasses in sun,consult doctor
-30,Bronchial Asthma,switch to loose cloothing,take deep breaths,get away from trigger,seek help
-31,Alcoholic hepatitis,stop alcohol consumption,consult doctor,medication,follow up
-32,Jaundice,drink plenty of water,consume milk thistle,eat fruits and high fiberous food,medication
-33,Hepatitis E,stop alcohol consumption,rest,consult doctor,medication
-34,Dengue,drink papaya leaf juice,avoid fatty spicy food,keep mosquitos away,keep hydrated
-35,Hepatitis D,consult doctor,medication,eat healthy,follow up
-36,Heart attack,call ambulance,chew or swallow asprin,keep calm,
-37,Pneumonia,consult doctor,medication,rest,follow up
-38,Arthritis,exercise,use hot and cold therapy,try acupuncture,massage
-39,Gastroenteritis,stop eating solid food for while,try taking small sips of water,rest,ease back into eating
-40,Tuberculosis,cover mouth,consult doctor,medication,rest
+0,Drug Reaction,Stop taking the suspected drug,Seek medical care immediately,Inform doctor of all medications,Follow up regularly
+1,Malaria,Use mosquito nets and repellents,Take prescribed antimalarial drugs,Avoid stagnant water,Seek medical care promptly
+2,Allergy,Avoid known allergens,Use prescribed antihistamines,Keep emergency epinephrine if severe,Consult doctor for testing
+3,Hypothyroidism,Take thyroid medication daily,Have regular thyroid tests,Eat a balanced diet,Get adequate rest
+4,Psoriasis,Moisturize skin daily,Avoid triggers like stress or cold,Take prescribed medication,Use medicated shampoos/creams
+5,GERD,Avoid spicy and fatty foods,Eat smaller meals,Do not lie down right after eating,Maintain healthy weight
+6,Chronic cholestasis,Follow low-fat diet,Take prescribed medications,Monitor liver function,Consult doctor regularly
+7,hepatitis A,Practice good hand hygiene,Avoid contaminated food and water,Get vaccinated,Rest and hydrate
+8,Osteoarthritis,Exercise regularly,Maintain healthy weight,Use hot/cold therapy,Take prescribed medications
+9,(vertigo) Paroxysmal Positional Vertigo,Avoid sudden head movements,Sleep with head slightly elevated,Do vestibular exercises,Consult ENT specialist
+10,Hypoglycemia,Carry glucose tablets or candy,Check blood sugar regularly,Do not skip meals,Consult doctor if frequent
+11,Acne,Wash face twice daily,Avoid picking/squeezing pimples,Use non-comedogenic skincare,Follow dermatologist treatment
+12,Diabetes,Monitor blood sugar regularly,Follow diabetic diet,Exercise regularly,Take prescribed medication
+13,Impetigo,Wash hands frequently,Clean lesions gently,Cover sores with bandage,Avoid close contact until healed
+14,Hypertension,Reduce salt intake,Exercise regularly,Take prescribed medication,Manage stress
+15,Peptic ulcer disease,Avoid NSAIDs and alcohol,Take prescribed medication,Eat smaller frequent meals,Manage stress
+16,Hemorrhoids (piles),Eat high-fiber foods,Drink plenty of water,Avoid straining during bowel movements,Take warm sitz baths
+17,Common Cold,Rest and stay hydrated,Use steam inhalation,Avoid cold exposure,Take over-the-counter remedies if needed
+18,Chicken pox,Isolate from others,Avoid scratching lesions,Keep skin clean and cool,Take antihistamines for itching
+19,Cervical spondylosis,Do neck strengthening exercises,Maintain good posture,Use firm pillow,Consult physiotherapist
+20,Hyperthyroidism,Take prescribed medication,Avoid excess iodine,Monitor thyroid function,Manage stress
+21,Urinary tract infection,Drink plenty of water,Urinate frequently,Avoid irritant hygiene products,Take full antibiotic course
+22,Varicose veins,Avoid standing for long periods,Elevate legs when resting,Wear compression stockings,Exercise regularly
+23,AIDS,Take antiretroviral therapy daily,Avoid sharing needles,Practice safe sex,Regular medical follow-up
+24,Paralysis (brain hemorrhage),Seek emergency care immediately,Follow physiotherapy,Manage blood pressure,Regular follow-up
+25,Typhoid,Drink safe and clean water,Complete full antibiotic course,Maintain good hygiene,Get vaccinated if at risk
+26,Hepatitis B,Get vaccinated,Avoid sharing needles,Practice safe sex,Regular liver checkups
+27,Fungal infection,Keep area clean and dry,Wear loose cotton clothes,Use antifungal creams,Do not share personal items
+28,Hepatitis C,Avoid alcohol,Do not share needles,Practice safe sex,Regular medical follow-up
+29,Migraine,Avoid known triggers,Maintain regular sleep,Stay hydrated,Use prescribed medication
+30,Bronchial Asthma,Avoid exposure to triggers,Use inhaler as prescribed,Do breathing exercises,Regular doctor follow-up
+31,Alcoholic hepatitis,Stop alcohol consumption,Eat a healthy diet,Follow prescribed medication,Regular liver monitoring
+32,Jaundice,Drink plenty of fluids,Avoid alcohol,Take prescribed treatment,Rest adequately
+33,Hepatitis E,Drink clean water,Avoid undercooked meat,Practice good hygiene,Rest and hydrate
+34,Dengue,Use mosquito nets and repellents,Stay hydrated,Monitor platelet count,Seek medical care immediately if bleeding
+35,Hepatitis D,Avoid alcohol,Take prescribed antivirals,Do not share needles,Regular doctor checkups
+36,Heart attack,Call emergency services immediately,Chew aspirin if advised,Stay calm and rest,Follow prescribed treatment post-recovery
+37,Pneumonia,Complete antibiotic course,Get adequate rest,Stay hydrated,Follow up with doctor
+38,Arthritis,Do low-impact exercise,Maintain healthy weight,Use hot/cold therapy,Take prescribed medication
+39,Gastroenteritis,Stay hydrated with ORS,Avoid solid food temporarily,Rest adequately,Gradually reintroduce bland foods
+40,Tuberculosis,Take full TB medication course,Cover mouth while coughing,Avoid close contact until treated,Regular follow-up with doctor
