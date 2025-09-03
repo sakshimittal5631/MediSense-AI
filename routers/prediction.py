@@ -215,7 +215,7 @@ async def login(request: Request, db: Session = Depends(get_db),
 
 # Endpoint for predicting disease and generating the PDF
 @router.get("/predict", response_class=HTMLResponse)
-async def predict_get(request: Request, current_user: models.User = Depends(get_current_user)):
+async def predict_get(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 

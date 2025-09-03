@@ -1,14 +1,14 @@
-from sqlalchemy import Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+from sqlalchemy import String, Integer
 
-Base = declarative_base()
-
+class Base(DeclarativeBase):
+    pass
 
 class User(Base):
     __tablename__ = "users"
 
-    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
-    name = Column(String(50), nullable=False)
-    email = Column(String(100), unique=True, nullable=False, index=True)
-    username = Column(String(50), unique=True, nullable=False, index=True)
-    password = Column(String(200), nullable=False)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True, autoincrement=True)
+    name: Mapped[str] = mapped_column(String(50), nullable=False)
+    email: Mapped[str] = mapped_column(String(100), unique=True, nullable=False, index=True)
+    username: Mapped[str] = mapped_column(String(50), unique=True, nullable=False, index=True)
+    password: Mapped[str] = mapped_column(String(200), nullable=False)
