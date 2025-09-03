@@ -1,4 +1,6 @@
-from fastapi import APIRouter, Request, Form, Depends, status, Query
+from fastapi import APIRouter, Request, Form, Depends, status, Query, BackgroundTasks
+from fastapi_mail import FastMail, MessageSchema, MessageType, ConnectionConfig
+from mail_config import fm
 from database import get_db
 from fastapi.responses import HTMLResponse, FileResponse
 from sqlalchemy.orm import Session
@@ -9,6 +11,7 @@ from reportlab.lib.styles import getSampleStyleSheet
 from fastapi.responses import RedirectResponse
 import os, numpy as np, pandas as pd, pickle
 from oauth import get_current_user
+from schemas import EmailSchema
 import models
 import ast
 
@@ -312,3 +315,22 @@ async def predict(
 @router.get("/download_report", response_class=FileResponse)
 async def download_report():
     return FileResponse("report.pdf", media_type="application/pdf", filename="MediSense_Report.pdf")
+
+
+@router.post("/send_report")
+async def send_report(email: EmailSchema, background_tasks: BackgroundTasks):
+    pdf_path = "report.pdf"
+
+    if not os.path.exists(pdf_path):
+        return {"error": "No report available. Please generate a report first."}
+
+    message = MessageSchema(
+        subject="Your MediSense AI Health Report",
+        recipients=[email.email],
+        body="Hello,\n\nPlease find the health report attached.\n\nRegards,\nMediSense AI",
+        subtype=MessageType.plain,
+        attachments=[pdf_path]
+    )
+
+    background_tasks.add_task(fm.send_message, message)
+    return {"message": f"✉️ Report sent successfully to {email.email}"}

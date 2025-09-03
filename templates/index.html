@@ -177,10 +177,17 @@
 
       <!-- Button for downloading the PDF report -->
       {% if pdf_report %}
-        <div class="text-center my-3">
-          <a href="/download_report" class="btn btn-theme px-4 py-2">Download Report</a>
-        </div>
-      {% endif %}
+  <div class="text-center my-3 d-flex justify-content-center gap-3">
+    <!-- Download Report -->
+    <a href="/download_report" class="btn btn-theme px-4 py-2">Download Report</a>
+
+    <!-- Button to open Mail Report modal -->
+    <button class="btn btn-theme px-4 py-2" data-bs-toggle="modal" data-bs-target="#mailReportModal">
+      Mail Report
+    </button>
+  </div>
+{% endif %}
+
 
     <!-- Feedback Form -->
 <div class="container my-4 d-flex justify-content-center">
@@ -351,6 +358,29 @@
   </div>
 </div>
 
+    <!-- Model for mailing report-->
+    <div class="modal fade" id="mailReportModal" tabindex="-1" aria-labelledby="mailReportModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background:#1e1e1e; color:white;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mailReportModalLabel">Mail Report</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="mailReportForm">
+          <div class="form-group mb-3">
+            <label for="email">Enter email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <button type="submit" class="btn btn-theme w-100">Send Report</button>
+        </form>
+        <div id="mailStatus" class="mt-2 text-center"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
     <script>
   const startSpeechRecognitionButton = document.getElementById('startSpeechRecognition');
 
@@ -391,6 +421,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
             crossorigin="anonymous"></script>
+
+  <script>
+document.getElementById("mailReportForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+  const email = document.getElementById("email").value;
+
+  const response = await fetch("/send_report", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email })
+  });
+
+  const result = await response.json();
+  document.getElementById("mailStatus").innerText = result.message || result.error;
+});
+</script>
+
   </body>
 
 
