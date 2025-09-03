@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Request, Form, Depends, status
+from fastapi import APIRouter, Request, Form, Depends, status, Query
 from database import get_db
 from fastapi.responses import HTMLResponse, FileResponse
 from sqlalchemy.orm import Session
@@ -215,8 +215,15 @@ async def login(request: Request, db: Session = Depends(get_db),
 
 # Endpoint for predicting disease and generating the PDF
 @router.get("/predict", response_class=HTMLResponse)
-async def predict_get(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+async def predict_get(request: Request, msg: str = Query(None)):
+    alert_message = None
+    if msg == "feedback_success":
+        alert_message = "✅ Thank you for your feedback!"
+
+    return templates.TemplateResponse(
+        "index.html",
+        {"request": request, "alert_message": alert_message}
+    )
 
 
 @router.post("/predict", response_class=HTMLResponse)
@@ -296,7 +303,8 @@ async def predict(
             "my_diet": rec_diet,
             "workout": wrkout,
             "doctors": doc_list,
-            "pdf_report": pdf_path
+            "pdf_report": pdf_path,
+            "symptoms": ", ".join(valid_symptoms)
         }
     )
 

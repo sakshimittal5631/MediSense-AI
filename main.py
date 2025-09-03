@@ -4,6 +4,7 @@ from routers.prediction import router as prediction_router
 from routers.register import router as register_router
 from routers.login import router as login_router
 from routers.pages import router as pages_router
+from routers.feedback import router as feedback_router
 import models
 from database import engine
 
@@ -16,3 +17,4 @@ app.include_router(register_router)
 app.include_router(login_router)
 app.include_router(prediction_router)
 app.include_router(pages_router)
+app.include_router(feedback_router)
