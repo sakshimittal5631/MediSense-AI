@@ -1,126 +1,187 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>MediSense AI - Blog Post</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-          crossorigin="anonymous">
-    <link rel="icon" type="image/png" href="/static/favicon.png">
-    <style>
-      .logo {
-        width: 50px;
-        height: 50px;
-        margin-top: 0;
-        margin-left: 2px;
-      }
-      .myimg {
-        width: 50px;
-        height: 50px;
-        border: 2px solid black;
-        border-radius: 25px;
-      }
-       body {
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-  color: white;
-}
-.modal-body {
-  background-color: #1e1e1e;  /* dark background */
-  color: white;              /* white text */
-}
-
-.modal-content {
-  background-color: #1e1e1e; /* keep modal consistent */
-  color: white;
-}
-
-.modal-body ul li {
-  color: white;              /* ensure list items are visible */
-}
-    </style>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="icon" type="image/png" href="/static/favicon.png" />
+    <link rel="stylesheet" href="/static/css/about.css" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <div class="logo">
-          <img class="myimg" src="/static/favicon.png" alt="">
+          <img class="myimg" src="/static/favicon.png" alt="" />
         </div>
         <a class="navbar-brand" href="#">MediSense AI</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
-            <li class="nav-item"><a class="nav-link" href="/developer">Developer</a></li>
-            <li class="nav-item"><a class="nav-link active" href="/blog">Blog</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/developer">Developer</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/blog">Blog</a>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <div class="container my-4 mt-4" style="background: black; color: white; border-radius: 15px; padding: 40px;">
-      <h2 class="text-center">MediSense AI: Revolutionizing Symptom-Based Disease Prediction</h2>
+    <div
+      class="container my-4 mt-4"
+      style="
+        background: black;
+        color: white;
+        border-radius: 15px;
+        padding: 40px;
+      "
+    >
+      <h2 class="text-center">
+        MediSense AI: Revolutionizing Symptom-Based Disease Prediction
+      </h2>
       <p>
-        The fusion of artificial intelligence and healthcare has paved the way for intelligent diagnostic tools that empower individuals with early health insights. As part of our capstone project, we developed <strong>MediSense AI</strong>, an advanced web application designed to predict diseases based on user-reported symptoms. Our goal is to make healthcare more accessible, proactive, and data-driven.
+        The fusion of artificial intelligence and healthcare has paved the way
+        for intelligent diagnostic tools that empower individuals with early
+        health insights. As part of our capstone project, we developed
+        <strong>MediSense AI</strong>, an advanced web application designed to
+        predict diseases based on user-reported symptoms. Our goal is to make
+        healthcare more accessible, proactive, and data-driven.
       </p>
 
       <h3>The Need for AI in Healthcare</h3>
       <p>
-        Traditional healthcare systems often require a visit to a doctor for diagnosis, but not everyone has immediate access to medical professionals. Many people turn to the internet for self-diagnosis, but unreliable sources can lead to misinformation. <strong>MediSense AI</strong> bridges this gap by providing an AI-driven symptom checker that offers reliable insights backed by machine learning.
+        Traditional healthcare systems often require a visit to a doctor for
+        diagnosis, but not everyone has immediate access to medical
+        professionals. Many people turn to the internet for self-diagnosis, but
+        unreliable sources can lead to misinformation.
+        <strong>MediSense AI</strong> bridges this gap by providing an AI-driven
+        symptom checker that offers reliable insights backed by machine
+        learning.
       </p>
 
       <h3>How MediSense AI Works</h3>
       <p>
-        Our platform allows users to input their symptoms, after which our AI model predicts potential diseases based on trained medical datasets. Here’s how the system operates:
+        Our platform allows users to input their symptoms, after which our AI
+        model predicts potential diseases based on trained medical datasets.
+        Here’s how the system operates:
       </p>
 
       <ol>
-        <li><strong>Symptom Input:</strong> Users enter their symptoms via a simple and interactive interface.</li>
-        <li><strong>AI Analysis:</strong> Our machine learning model, built using Python and pickle, processes the symptoms and generates a list of probable diseases.</li>
-        <li><strong>Comprehensive Insights:</strong> Users receive not only the predictions but also details about each disease, including symptoms, causes, precautions, and suggested actions.</li>
-        <li><strong>Health Recommendations:</strong> Based on the diagnosis, the system provides recommendations on lifestyle, diet, and possible treatments.</li>
+        <li>
+          <strong>Symptom Input:</strong> Users enter their symptoms via a
+          simple and interactive interface.
+        </li>
+        <li>
+          <strong>AI Analysis:</strong> Our machine learning model, built using
+          Python and pickle, processes the symptoms and generates a list of
+          probable diseases.
+        </li>
+        <li>
+          <strong>Comprehensive Insights:</strong> Users receive not only the
+          predictions but also details about each disease, including symptoms,
+          causes, precautions, and suggested actions.
+        </li>
+        <li>
+          <strong>Health Recommendations:</strong> Based on the diagnosis, the
+          system provides recommendations on lifestyle, diet, and possible
+          treatments.
+        </li>
       </ol>
 
       <h3>Technologies Behind MediSense AI</h3>
       <p>
-        The development of MediSense AI involved a combination of cutting-edge technologies:
+        The development of MediSense AI involved a combination of cutting-edge
+        technologies:
       </p>
       <ul>
-        <li><strong>FastAPI:</strong> A high-performance web framework used for building the backend API.</li>
-        <li><strong>Machine Learning:</strong> A model developed with Python, utilizing decision trees and other algorithms, stored with pickle for predictions.</li>
-        <li><strong>Pandas and CSV Files:</strong> Used for data handling and manipulation through CSV datasets.</li>
+        <li>
+          <strong>FastAPI:</strong> A high-performance web framework used for
+          building the backend API.
+        </li>
+        <li>
+          <strong>Machine Learning:</strong> A model developed with Python,
+          utilizing decision trees and other algorithms, stored with pickle for
+          predictions.
+        </li>
+        <li>
+          <strong>Pandas and CSV Files:</strong> Used for data handling and
+          manipulation through CSV datasets.
+        </li>
       </ul>
 
       <h3>Why MediSense AI Stands Out</h3>
       <ul>
-        <li><strong>AI-Powered Predictions:</strong> Uses advanced machine learning techniques for accurate symptom-based disease prediction.</li>
-        <li><strong>User-Centric Design:</strong> Ensures an intuitive and hassle-free user experience.</li>
-        <li><strong>Reliable Medical Information:</strong> Provides evidence-based insights on diseases and precautions.</li>
-        <li><strong>Future-Ready:</strong> Designed to evolve with continuous updates and integration of more advanced AI models.</li>
+        <li>
+          <strong>AI-Powered Predictions:</strong> Uses advanced machine
+          learning techniques for accurate symptom-based disease prediction.
+        </li>
+        <li>
+          <strong>User-Centric Design:</strong> Ensures an intuitive and
+          hassle-free user experience.
+        </li>
+        <li>
+          <strong>Reliable Medical Information:</strong> Provides evidence-based
+          insights on diseases and precautions.
+        </li>
+        <li>
+          <strong>Future-Ready:</strong> Designed to evolve with continuous
+          updates and integration of more advanced AI models.
+        </li>
       </ul>
 
       <h3>The Future of MediSense AI</h3>
       <p>
-        Our vision for MediSense AI extends beyond symptom-based predictions. Future improvements include integrating telemedicine features, enhancing model accuracy with real-world data, and incorporating wearable device integration for real-time health monitoring. By continuously improving our platform, we aspire to make AI-driven healthcare more accessible to people worldwide.
+        Our vision for MediSense AI extends beyond symptom-based predictions.
+        Future improvements include integrating telemedicine features, enhancing
+        model accuracy with real-world data, and incorporating wearable device
+        integration for real-time health monitoring. By continuously improving
+        our platform, we aspire to make AI-driven healthcare more accessible to
+        people worldwide.
       </p>
 
       <h3>Final Thoughts</h3>
       <p>
-        MediSense AI represents a crucial step in making AI-assisted healthcare tools widely available. By leveraging the power of machine learning, we aim to assist individuals in making informed health decisions while reducing dependency on unreliable internet searches. This project is not just about technology—it’s about enabling a healthier future through intelligent and accessible healthcare solutions.
+        MediSense AI represents a crucial step in making AI-assisted healthcare
+        tools widely available. By leveraging the power of machine learning, we
+        aim to assist individuals in making informed health decisions while
+        reducing dependency on unreliable internet searches. This project is not
+        just about technology—it’s about enabling a healthier future through
+        intelligent and accessible healthcare solutions.
       </p>
       <p>
-        Thank you for joining us on this journey of innovation. Stay tuned for more updates as we continue to refine and expand MediSense AI.
+        Thank you for joining us on this journey of innovation. Stay tuned for
+        more updates as we continue to refine and expand MediSense AI.
       </p>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-            crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

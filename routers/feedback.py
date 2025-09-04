@@ -1,8 +1,8 @@
 from fastapi import Form, Depends, APIRouter
 from sqlalchemy.orm import Session
-from database import get_db
+from database.database import get_db
 from fastapi.responses import RedirectResponse
-import models
+from database import models
 
 router = APIRouter()
 

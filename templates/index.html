@@ -1,74 +1,35 @@
-<!doctype html>
-{% set symptoms_dict = {
-    'itching': 0, 'skin_rash': 1, 'nodal_skin_eruptions': 2, 'continuous_sneezing': 3, 'shivering': 4, 'chills': 5, 'joint_pain': 6, 'stomach_pain': 7, 'acidity': 8, 'ulcers_on_tongue': 9, 'muscle_wasting': 10, 'vomiting': 11, 'burning_micturition': 12, 'spotting_ urination': 13, 'fatigue': 14, 'weight_gain': 15, 'anxiety': 16, 'cold_hands_and_feets': 17, 'mood_swings': 18, 'weight_loss': 19, 'restlessness': 20, 'lethargy': 21, 'patches_in_throat': 22, 'irregular_sugar_level': 23, 'cough': 24, 'high_fever': 25, 'sunken_eyes': 26, 'breathlessness': 27, 'sweating': 28, 'dehydration': 29, 'indigestion': 30, 'headache': 31, 'yellowish_skin': 32, 'dark_urine': 33, 'nausea': 34, 'loss_of_appetite': 35, 'pain_behind_the_eyes': 36, 'back_pain': 37, 'constipation': 38, 'abdominal_pain': 39, 'diarrhoea': 40, 'mild_fever': 41, 'yellow_urine': 42, 'yellowing_of_eyes': 43, 'acute_liver_failure': 44, 'fluid_overload': 45, 'swelling_of_stomach': 46, 'swelled_lymph_nodes': 47, 'malaise': 48, 'blurred_and_distorted_vision': 49, 'phlegm': 50, 'throat_irritation': 51, 'redness_of_eyes': 52, 'sinus_pressure': 53, 'runny_nose': 54, 'congestion': 55, 'chest_pain': 56, 'weakness_in_limbs': 57, 'fast_heart_rate': 58, 'pain_during_bowel_movements': 59, 'pain_in_anal_region': 60, 'bloody_stool': 61, 'irritation_in_anus': 62, 'neck_pain': 63, 'dizziness': 64, 'cramps': 65, 'bruising': 66, 'obesity': 67, 'swollen_legs': 68, 'swollen_blood_vessels': 69, 'puffy_face_and_eyes': 70, 'enlarged_thyroid': 71, 'brittle_nails': 72, 'swollen_extremeties': 73, 'excessive_hunger': 74, 'extra_marital_contacts': 75, 'drying_and_tingling_lips': 76, 'slurred_speech': 77, 'knee_pain': 78, 'hip_joint_pain': 79, 'muscle_weakness': 80, 'stiff_neck': 81, 'swelling_joints': 82, 'movement_stiffness': 83, 'spinning_movements': 84, 'loss_of_balance': 85, 'unsteadiness': 86, 'weakness_of_one_body_side': 87, 'loss_of_smell': 88, 'bladder_discomfort': 89, 'foul_smell_of urine': 90, 'continuous_feel_of_urine': 91, 'passage_of_gases': 92, 'internal_itching': 93, 'toxic_look_(typhos)': 94, 'depression': 95, 'irritability': 96, 'muscle_pain': 97, 'altered_sensorium': 98, 'red_spots_over_body': 99, 'belly_pain': 100, 'abnormal_menstruation': 101, 'dischromic _patches': 102, 'watering_from_eyes': 103, 'increased_appetite': 104, 'polyuria': 105, 'family_history': 106, 'mucoid_sputum': 107, 'rusty_sputum': 108, 'lack_of_concentration': 109, 'visual_disturbances': 110, 'receiving_blood_transfusion': 111, 'receiving_unsterile_injections': 112, 'coma': 113, 'stomach_bleeding': 114, 'distention_of_abdomen': 115, 'history_of_alcohol_consumption': 116, 'fluid_overload.1': 117, 'blood_in_sputum': 118, 'prominent_veins_on_calf': 119, 'palpitations': 120, 'painful_walking': 121, 'pus_filled_pimples': 122, 'blackheads': 123, 'scurring': 124, 'skin_peeling': 125, 'silver_like_dusting': 126, 'small_dents_in_nails': 127, 'inflammatory_nails': 128, 'blister': 129, 'red_sore_around_nose': 130, 'yellow_crust_ooze': 131
-} %}
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>MediSense AI - Prediction</title>
-    <link rel="icon" type="image/png" href="/static/favicon.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-          crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="/static/favicon.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/static/css/style.css">
   </head>
-  <style>
-    .logo {
-      width: 50px;
-      height: 50px;
-      color: black;
-      margin-top: 0;
-      margin-left: 2px;
-    }
-    .myimg {
-      width: 50px;
-      height: 50px;
-      border: 2px solid black;
-      border-radius: 25px;
-    }
-   body {
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-  color: white;
-}
-.modal-body {
-  background-color: #1e1e1e;  /* dark background */
-  color: white;              /* white text */
-}
-
-.modal-content {
-  background-color: #1e1e1e; /* keep modal consistent */
-  color: white;
-}
-
-.modal-body ul li {
-  color: white;              /* ensure list items are visible */
-}
-
-.btn-theme {
-  background-color: #F39334;   /* orange theme */
-  color: black;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  transition: 0.3s;
-}
-
-.btn-theme:hover {
-  background-color: #d97d28;   /* darker orange */
-  color: white;
-}
-
-  </style>
   <body>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <div class="logo">
-          <img class="myimg" src="/static/favicon.png" alt="">
+          <img class="myimg" src="/static/favicon.png" alt="" />
         </div>
         <a class="navbar-brand ms-3" href="#">MediSense AI</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -94,65 +55,127 @@
     </nav>
 
     {% if alert_message %}
-<div id="alertBox" class="alert alert-success alert-dismissible fade show text-center" role="alert"
-     style="position: fixed; top: 10px; left: 50%; transform: translateX(-50%); width: 50%; z-index: 9999;">
-  {{ alert_message }}
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
+    <div
+      id="alertBox"
+      class="alert alert-success alert-dismissible fade show text-center"
+      role="alert"
+      style="
+        position: fixed;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50%;
+        z-index: 9999;
+      "
+    >
+      {{ alert_message }}
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
 
-<script>
-  // Auto-hide the alert after 3 seconds
-  setTimeout(() => {
-    const alertBox = document.getElementById("alertBox");
-    if (alertBox) {
-      alertBox.classList.remove("show");
-      alertBox.classList.add("hide");
-    }
-  }, 3000);
-</script>
-{% endif %}
+    <script>
+      // Auto-hide the alert after 3 seconds
+      setTimeout(() => {
+        const alertBox = document.getElementById("alertBox");
+        if (alertBox) {
+          alertBox.classList.remove("show");
+          alertBox.classList.add("hide");
+        }
+      }, 3000);
+    </script>
+    {% endif %}
 
     <!-- Main Form -->
     <h1 class="mt-4 my-4 text-center text-green">MediSense AI</h1>
-    <div class="container my-4 mt-4" style="background: black; color: white; border-radius: 15px; padding: 40px;">
+    <div
+      class="container my-4 mt-4"
+      style="
+        background: black;
+        color: white;
+        border-radius: 15px;
+        padding: 40px;
+      "
+    >
       <form action="/predict" method="post">
         <div class="form-group">
           <label for="symptoms">Select Symptoms:</label>
-          <input type="text" class="form-control" id="symptoms" name="symptoms"
-       placeholder="Type symptoms such as itching, stomach pain, acidity etc">
+          <input
+            type="text"
+            class="form-control"
+            id="symptoms"
+            name="symptoms"
+            placeholder="Type symptoms such as itching, stomach pain, acidity etc"
+          />
         </div>
-        <br>
-        <button type="button" id="startSpeechRecognition" class="btn btn-primary" style="margin-left:3px; border:1px solid white; border-radius:20px;">
+        <br />
+        <button
+          type="button"
+          id="startSpeechRecognition"
+          class="btn btn-primary"
+          style="margin-left: 3px; border: 1px solid white; border-radius: 20px"
+        >
           Start Speech Recognition
         </button>
-        <br>
+        <br />
         <!-- Area for transcribed speech -->
         <div id="transcription"></div>
         {% if message %}
-          <p>{{ message }}</p>
+        <p>{{ message }}</p>
         {% endif %}
-        <br>
-        <button type="submit" class="btn btn-danger btn-lg" style="width: 100%; padding: 14px; margin-bottom: 5px;">Predict</button>
+        <br />
+        <button
+          type="submit"
+          class="btn btn-danger btn-lg"
+          style="width: 100%; padding: 14px; margin-bottom: 5px"
+        >
+          Predict
+        </button>
       </form>
     </div>
 
     <!-- Button to open the symptoms list modal -->
     <div class="container text-center">
-      <button class="btn btn-info my-3" data-bs-toggle="modal" data-bs-target="#symptomsModal">View Symptoms List</button>
+      <button
+        class="btn btn-info my-3"
+        data-bs-toggle="modal"
+        data-bs-target="#symptomsModal"
+      >
+        View Symptoms List
+      </button>
     </div>
 
     <!-- Modal displaying available symptoms -->
-    <div class="modal fade" id="symptomsModal" tabindex="-1" aria-labelledby="symptomsModalLabel" aria-hidden="true">
+    <div
+      class="modal fade"
+      id="symptomsModal"
+      tabindex="-1"
+      aria-labelledby="symptomsModalLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
-          <div class="modal-header" style="background-color: #020606; color:white;">
-            <h5 class="modal-title" id="symptomsModalLabel">Available Symptoms</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div
+            class="modal-header"
+            style="background-color: #020606; color: white"
+          >
+            <h5 class="modal-title" id="symptomsModalLabel">
+              Available Symptoms
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
           <div class="modal-body">
             <ul>
               {% for symptom in symptoms_dict.keys() %}
-                <li>{{ symptom }}</li>
+              <li>{{ symptom }}</li>
               {% endfor %}
             </ul>
           </div>
@@ -161,73 +184,244 @@
     </div>
 
     {% if predicted_disease %}
-      <!-- Results Section -->
-      <h1 class="text-center my-4 mt-4">Our AI System Results</h1>
-      <div class="container text-center">
-        <div class="result-container">
-          <button class="toggle-button" data-bs-toggle="modal" data-bs-target="#diseaseModal" style="padding:4px; margin: 5px; font-size:20px; font-weight:bold; width:140px; border-radius:5px; background:#F39334; color:black;">Disease</button>
-          <button class="toggle-button" data-bs-toggle="modal" data-bs-target="#descriptionModal" style="padding:4px; margin: 5px; font-size:20px; font-weight:bold; width:140px; border-radius:5px; background:#268AF3; color:black;">Description</button>
-          <button class="toggle-button" data-bs-toggle="modal" data-bs-target="#precautionModal" style="padding:4px; margin: 5px; font-size:20px; font-weight:bold; width:140px; border-radius:5px; background:#F371F9; color:black;">Precaution</button>
-          <button class="toggle-button" data-bs-toggle="modal" data-bs-target="#medicationsModal" style="padding:4px; margin: 5px; font-size:20px; font-weight:bold; width:140px; border-radius:5px; background:#F8576F; color:black;">Medications</button>
-          <button class="toggle-button" data-bs-toggle="modal" data-bs-target="#workoutsModal" style="padding:4px; margin: 5px; font-size:20px; font-weight:bold; width:140px; border-radius:5px; background:#99F741; color:black;">Workouts</button>
-          <button class="toggle-button" data-bs-toggle="modal" data-bs-target="#dietsModal" style="padding:4px; margin: 5px; font-size:20px; font-weight:bold; width:140px; border-radius:5px; background:#E5E23D; color:black;">Diets</button>
-          <button class="toggle-button" data-bs-toggle="modal" data-bs-target="#doctorsModal" style="padding:4px; margin: 5px; font-size:20px; font-weight:bold; width:140px; border-radius:5px; background:#8A2BE2; color:black;">Doctors</button>
-        </div>
+    <!-- Results Section -->
+    <h1 class="text-center my-4 mt-4">Our AI System Results</h1>
+    <div class="container text-center">
+      <div class="result-container">
+        <button
+          class="toggle-button"
+          data-bs-toggle="modal"
+          data-bs-target="#diseaseModal"
+          style="
+            padding: 4px;
+            margin: 5px;
+            font-size: 20px;
+            font-weight: bold;
+            width: 140px;
+            border-radius: 5px;
+            background: #f39334;
+            color: black;
+          "
+        >
+          Disease
+        </button>
+        <button
+          class="toggle-button"
+          data-bs-toggle="modal"
+          data-bs-target="#descriptionModal"
+          style="
+            padding: 4px;
+            margin: 5px;
+            font-size: 20px;
+            font-weight: bold;
+            width: 140px;
+            border-radius: 5px;
+            background: #268af3;
+            color: black;
+          "
+        >
+          Description
+        </button>
+        <button
+          class="toggle-button"
+          data-bs-toggle="modal"
+          data-bs-target="#precautionModal"
+          style="
+            padding: 4px;
+            margin: 5px;
+            font-size: 20px;
+            font-weight: bold;
+            width: 140px;
+            border-radius: 5px;
+            background: #f371f9;
+            color: black;
+          "
+        >
+          Precaution
+        </button>
+        <button
+          class="toggle-button"
+          data-bs-toggle="modal"
+          data-bs-target="#medicationsModal"
+          style="
+            padding: 4px;
+            margin: 5px;
+            font-size: 20px;
+            font-weight: bold;
+            width: 140px;
+            border-radius: 5px;
+            background: #f8576f;
+            color: black;
+          "
+        >
+          Medications
+        </button>
+        <button
+          class="toggle-button"
+          data-bs-toggle="modal"
+          data-bs-target="#workoutsModal"
+          style="
+            padding: 4px;
+            margin: 5px;
+            font-size: 20px;
+            font-weight: bold;
+            width: 140px;
+            border-radius: 5px;
+            background: #99f741;
+            color: black;
+          "
+        >
+          Workouts
+        </button>
+        <button
+          class="toggle-button"
+          data-bs-toggle="modal"
+          data-bs-target="#dietsModal"
+          style="
+            padding: 4px;
+            margin: 5px;
+            font-size: 20px;
+            font-weight: bold;
+            width: 140px;
+            border-radius: 5px;
+            background: #e5e23d;
+            color: black;
+          "
+        >
+          Diets
+        </button>
+        <button
+          class="toggle-button"
+          data-bs-toggle="modal"
+          data-bs-target="#doctorsModal"
+          style="
+            padding: 4px;
+            margin: 5px;
+            font-size: 20px;
+            font-weight: bold;
+            width: 140px;
+            border-radius: 5px;
+            background: #8a2be2;
+            color: black;
+          "
+        >
+          Doctors
+        </button>
       </div>
+    </div>
 
-      <!-- Button for downloading the PDF report -->
-      {% if pdf_report %}
-  <div class="text-center my-3 d-flex justify-content-center gap-3">
-    <!-- Download Report -->
-    <a href="/download_report" class="btn btn-theme px-4 py-2">Download Report</a>
+    <!-- Button for downloading the PDF report -->
+    {% if pdf_report %}
+    <div class="text-center my-3 d-flex justify-content-center gap-3">
+      <!-- Download Report -->
+      <a href="/download_report" class="btn btn-theme px-4 py-2"
+        >Download Report</a
+      >
 
-    <!-- Button to open Mail Report modal -->
-    <button class="btn btn-theme px-4 py-2" data-bs-toggle="modal" data-bs-target="#mailReportModal">
-      Mail Report
-    </button>
-  </div>
-{% endif %}
-
+      <!-- Button to open Mail Report modal -->
+      <button
+        class="btn btn-theme px-4 py-2"
+        data-bs-toggle="modal"
+        data-bs-target="#mailReportModal"
+      >
+        Mail Report
+      </button>
+    </div>
+    {% endif %}
 
     <!-- Feedback Form -->
-<div class="container my-4 d-flex justify-content-center">
-  <div style="background: #111; color: white; border-radius: 15px; padding: 20px; max-width: 500px; width: 100%;">
-    <h4 class="text-center">Was this prediction helpful?</h4>
-    <form action="/feedback" method="post">
-      <input type="hidden" name="symptoms" value="{{ symptoms }}">
-      <input type="hidden" name="predicted_disease" value="{{ predicted_disease }}">
+    <div class="container my-4 d-flex justify-content-center">
+      <div
+        style="
+          background: #111;
+          color: white;
+          border-radius: 15px;
+          padding: 20px;
+          max-width: 500px;
+          width: 100%;
+        "
+      >
+        <h4 class="text-center">Was this prediction helpful?</h4>
+        <form action="/feedback" method="post">
+          <input type="hidden" name="symptoms" value="{{ symptoms }}" />
+          <input
+            type="hidden"
+            name="predicted_disease"
+            value="{{ predicted_disease }}"
+          />
 
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="user_feedback" value="Correct" id="feedbackCorrect" required>
-        <label class="form-check-label" for="feedbackCorrect">✅ Correct</label>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="user_feedback"
+              value="Correct"
+              id="feedbackCorrect"
+              required
+            />
+            <label class="form-check-label" for="feedbackCorrect"
+              >✅ Correct</label
+            >
+          </div>
+
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="user_feedback"
+              value="Incorrect"
+              id="feedbackIncorrect"
+              required
+            />
+            <label class="form-check-label" for="feedbackIncorrect"
+              >❌ Incorrect</label
+            >
+          </div>
+
+          <div class="form-group mt-3">
+            <label for="comments">Additional comments (optional):</label>
+            <textarea
+              class="form-control"
+              id="comments"
+              name="comments"
+              rows="3"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-theme mt-3 w-100">
+            Submit Feedback
+          </button>
+        </form>
       </div>
-
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="user_feedback" value="Incorrect" id="feedbackIncorrect" required>
-        <label class="form-check-label" for="feedbackIncorrect">❌ Incorrect</label>
-      </div>
-
-      <div class="form-group mt-3">
-        <label for="comments">Additional comments (optional):</label>
-        <textarea class="form-control" id="comments" name="comments" rows="3"></textarea>
-      </div>
-
-      <button type="submit" class="btn btn-theme mt-3 w-100">Submit Feedback</button>
-    </form>
-  </div>
-</div>
+    </div>
 
     {% endif %}
 
     <!-- Model for Predicted Disease -->
-    <div class="modal fade" id="diseaseModal" tabindex="-1" aria-labelledby="diseaseModalLabel" aria-hidden="true">
+    <div
+      class="modal fade"
+      id="diseaseModal"
+      tabindex="-1"
+      aria-labelledby="diseaseModalLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header" style="background-color: #020606; color:white;">
-            <h5 class="modal-title" id="diseaseModalLabel">Predicted Disease</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div
+            class="modal-header"
+            style="background-color: #020606; color: white"
+          >
+            <h5 class="modal-title" id="diseaseModalLabel">
+              Predicted Disease
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
-          <div class="modal-body" style="background-color: #modal-body-color;">
+          <div class="modal-body" style="background-color: #modal-body-color">
             <p>{{ predicted_disease }}</p>
           </div>
         </div>
@@ -235,12 +429,26 @@
     </div>
 
     <!-- Model for Disease Description -->
-    <div class="modal fade" id="descriptionModal" tabindex="-1" aria-labelledby="descriptionModalLabel" aria-hidden="true">
+    <div
+      class="modal fade"
+      id="descriptionModal"
+      tabindex="-1"
+      aria-labelledby="descriptionModalLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header" style="background-color: #020606; color:white;">
+          <div
+            class="modal-header"
+            style="background-color: #020606; color: white"
+          >
             <h5 class="modal-title" id="descriptionModalLabel">Description</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
           <div class="modal-body">
             <p>{{ dis_des }}</p>
@@ -250,61 +458,105 @@
     </div>
 
     <!-- Model for Precautions -->
-<div class="modal fade" id="precautionModal" tabindex="-1" aria-labelledby="precautionModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header" style="background-color: #020606; color:white;">
-        <h5 class="modal-title" id="precautionModalLabel">Precaution</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <ul>
-          {% for i in my_precautions %}
-            <li>{{ i|capitalize }}</li>
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-    <!-- Model for Medications -->
-<div class="modal fade" id="medicationsModal" tabindex="-1" aria-labelledby="medicationsModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header" style="background-color: #020606; color:white;">
-        <h5 class="modal-title" id="medicationsModalLabel">Medications</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p><em>⚠️ Disclaimer: The following are medications that are generally taken for this condition.
-        This is generated by a prediction model and is <strong>not medical advice</strong>.
-        Please consult a doctor before taking any medication.</em></p>
-        <ul>
-          {% for med in medications %}
-            <li>{{ med|capitalize }}</li>
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-    <!-- Model for Workouts -->
-    <div class="modal fade" id="workoutsModal" tabindex="-1" aria-labelledby="workoutsModalLabel" aria-hidden="true">
+    <div
+      class="modal fade"
+      id="precautionModal"
+      tabindex="-1"
+      aria-labelledby="precautionModalLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header" style="background-color: #020606; color:white;">
+          <div
+            class="modal-header"
+            style="background-color: #020606; color: white"
+          >
+            <h5 class="modal-title" id="precautionModalLabel">Precaution</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <ul>
+              {% for i in my_precautions %}
+              <li>{{ i|capitalize }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Model for Medications -->
+    <div
+      class="modal fade"
+      id="medicationsModal"
+      tabindex="-1"
+      aria-labelledby="medicationsModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div
+            class="modal-header"
+            style="background-color: #020606; color: white"
+          >
+            <h5 class="modal-title" id="medicationsModalLabel">Medications</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              <em
+                >⚠️ Disclaimer: The following are medications that are generally
+                taken for this condition. This is generated by a prediction
+                model and is <strong>not medical advice</strong>. Please consult
+                a doctor before taking any medication.</em
+              >
+            </p>
+            <ul>
+              {% for med in medications %}
+              <li>{{ med|capitalize }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Model for Workouts -->
+    <div
+      class="modal fade"
+      id="workoutsModal"
+      tabindex="-1"
+      aria-labelledby="workoutsModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div
+            class="modal-header"
+            style="background-color: #020606; color: white"
+          >
             <h5 class="modal-title" id="workoutsModalLabel">Workouts</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
           <div class="modal-body">
             <ul>
               {% for i in workout %}
-                <li>{{ i }}</li>
+              <li>{{ i }}</li>
               {% endfor %}
             </ul>
           </div>
@@ -313,141 +565,218 @@
     </div>
 
     <!-- Model for Diet Recommendations -->
-<div class="modal fade" id="dietsModal" tabindex="-1" aria-labelledby="dietsModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header" style="background-color: #020606; color:white;">
-        <h5 class="modal-title" id="dietsModalLabel">Diet Recommendations</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p><em>⚠️ Disclaimer: The following are diet recommendations that are generally suggested for this condition.
-        This is generated by a prediction model and is <strong>not medical advice</strong>.
-        Please consult a doctor or dietician before making dietary changes.</em></p>
-        <ul>
-          {% for diet in my_diet %}
-            <li>{{ diet|capitalize }}</li>
-          {% endfor %}
-        </ul>
+    <div
+      class="modal fade"
+      id="dietsModal"
+      tabindex="-1"
+      aria-labelledby="dietsModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div
+            class="modal-header"
+            style="background-color: #020606; color: white"
+          >
+            <h5 class="modal-title" id="dietsModalLabel">
+              Diet Recommendations
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              <em
+                >⚠️ Disclaimer: The following are diet recommendations that are
+                generally suggested for this condition. This is generated by a
+                prediction model and is <strong>not medical advice</strong>.
+                Please consult a doctor or dietician before making dietary
+                changes.</em
+              >
+            </p>
+            <ul>
+              {% for diet in my_diet %}
+              <li>{{ diet|capitalize }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
- <!-- Model for Doctors -->
-<div class="modal fade" id="doctorsModal" tabindex="-1" aria-labelledby="doctorsModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header" style="background-color: #020606; color:white;">
-        <h5 class="modal-title" id="doctorsModalLabel">Consult Doctors</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p><em>👨‍⚕️ Below are some doctors you may consult for this condition.
-        This is generated from the dataset and <strong>not a substitute for professional advice</strong>.
-        Always verify before consulting.</em></p>
-        <ul>
-          {% for doc in doctors %}
-            <li>
-              <strong>{{ doc.DoctorName }}</strong> ({{ doc.Specialization }}) - {{ doc.Hospital }}
-            </li>
-          {% endfor %}
-        </ul>
+    <!-- Model for Doctors -->
+    <div
+      class="modal fade"
+      id="doctorsModal"
+      tabindex="-1"
+      aria-labelledby="doctorsModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div
+            class="modal-header"
+            style="background-color: #020606; color: white"
+          >
+            <h5 class="modal-title" id="doctorsModalLabel">Consult Doctors</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              <em
+                >👨‍⚕️ Below are some doctors you may consult for this condition.
+                This is generated from the dataset and
+                <strong>not a substitute for professional advice</strong>.
+                Always verify before consulting.</em
+              >
+            </p>
+            <ul>
+              {% for doc in doctors %}
+              <li>
+                <strong>{{ doc.DoctorName }}</strong> ({{ doc.Specialization }})
+                - {{ doc.Hospital }}
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
     <!-- Model for mailing report-->
-    <div class="modal fade" id="mailReportModal" tabindex="-1" aria-labelledby="mailReportModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content" style="background:#1e1e1e; color:white;">
-      <div class="modal-header">
-        <h5 class="modal-title" id="mailReportModalLabel">Mail Report</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form id="mailReportForm">
-          <div class="form-group mb-3">
-            <label for="email">Enter email:</label>
-            <input type="email" class="form-control" id="email" name="email" required>
+    <div
+      class="modal fade"
+      id="mailReportModal"
+      tabindex="-1"
+      aria-labelledby="mailReportModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content" style="background: #1e1e1e; color: white">
+          <div class="modal-header">
+            <h5 class="modal-title" id="mailReportModalLabel">Mail Report</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
-          <button type="submit" class="btn btn-theme w-100">Send Report</button>
-        </form>
-        <div id="mailStatus" class="mt-2 text-center"></div>
+          <div class="modal-body">
+            <form id="mailReportForm">
+              <div class="form-group mb-3">
+                <label for="email">Enter email:</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-theme w-100">
+                Send Report
+              </button>
+            </form>
+            <div id="mailStatus" class="mt-2 text-center"></div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-
 
     <script>
-  const startSpeechRecognitionButton = document.getElementById('startSpeechRecognition');
+      const startSpeechRecognitionButton = document.getElementById(
+        "startSpeechRecognition"
+      );
 
-  startSpeechRecognitionButton.addEventListener('click', startSpeechRecognition);
+      startSpeechRecognitionButton.addEventListener(
+        "click",
+        startSpeechRecognition
+      );
 
-  function startSpeechRecognition() {
-    const recognition = new webkitSpeechRecognition();
-    recognition.lang = 'en-US';
-    recognition.onresult = function (event) {
-  let result = event.results[0][0].transcript;
+      function startSpeechRecognition() {
+        const recognition = new webkitSpeechRecognition();
+        recognition.lang = "en-US";
+        recognition.onresult = function (event) {
+          let result = event.results[0][0].transcript;
 
-  // remove trailing spaces + dots
-  result = result.trim().replace(/\.$/, "");
+          // remove trailing spaces + dots
+          result = result.trim().replace(/\.$/, "");
 
-  // replace "." with "," so each symptom stays separated
-  result = result.replace(/\./g, ",");
+          // replace "." with "," so each symptom stays separated
+          result = result.replace(/\./g, ",");
 
-  // normalize multiple spaces and commas
-  result = result.replace(/\s*,\s*/g, ", ").replace(/\s+/g, " ");
+          // normalize multiple spaces and commas
+          result = result.replace(/\s*,\s*/g, ", ").replace(/\s+/g, " ");
 
-  // append to input box with proper commas
-  const symptomsInput = document.getElementById("symptoms");
-  if (symptomsInput.value) {
-    symptomsInput.value += ", " + result;
-  } else {
-    symptomsInput.value = result;
-  }
-};
+          // append to input box with proper commas
+          const symptomsInput = document.getElementById("symptoms");
+          if (symptomsInput.value) {
+            symptomsInput.value += ", " + result;
+          } else {
+            symptomsInput.value = result;
+          }
+        };
 
-    recognition.onend = function () {
-      console.log('Speech recognition ended');
-    };
-    recognition.start();
-  }
-</script>
+        recognition.onend = function () {
+          console.log("Speech recognition ended");
+        };
+        recognition.start();
+      }
+    </script>
 
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-            crossorigin="anonymous"></script>
+    <script>
+      document
+        .getElementById("mailReportForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const email = document.getElementById("email").value;
 
-  <script>
-document.getElementById("mailReportForm").addEventListener("submit", async function(e) {
-  e.preventDefault();
-  const email = document.getElementById("email").value;
+          const response = await fetch("/send_report", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email }),
+          });
 
-  const response = await fetch("/send_report", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email })
-  });
-
-  const result = await response.json();
-  document.getElementById("mailStatus").innerText = result.message || result.error;
-});
-</script>
-
+          const result = await response.json();
+          document.getElementById("mailStatus").innerText =
+            result.message || result.error;
+        });
+    </script>
   </body>
 
-
-<footer class="text-center mt-5 p-3" style="background-color: #f8f9fa; color: #333; font-size: 0.9rem; border-top: 1px solid #ccc;">
-  <p style="max-width: 800px; margin: auto;">
-    <strong>Disclaimer:</strong> The information provided by MediSense AI is for educational and informational purposes only
-    and is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician
-    or other qualified healthcare provider with any questions you may have regarding a medical condition. Never disregard
-    professional medical advice or delay in seeking it because of something you have read here.
-  </p>
-</footer>
-
+  <footer
+    class="text-center mt-5 p-3"
+    style="
+      background-color: #f8f9fa;
+      color: #333;
+      font-size: 0.9rem;
+      border-top: 1px solid #ccc;
+    "
+  >
+    <p style="max-width: 800px; margin: auto">
+      <strong>Disclaimer:</strong> The information provided by MediSense AI is
+      for educational and informational purposes only and is not a substitute
+      for professional medical advice, diagnosis, or treatment. Always seek the
+      advice of your physician or other qualified healthcare provider with any
+      questions you may have regarding a medical condition. Never disregard
+      professional medical advice or delay in seeking it because of something
+      you have read here.
+    </p>
+  </footer>
 </html>
